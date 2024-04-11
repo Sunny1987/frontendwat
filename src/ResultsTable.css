@@ -1,0 +1,95 @@
+.ResultsTable {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.content {
+    height: calc(100vh - 150px); /* Adjust the value as needed, reduced the height */
+    overflow-y: auto;
+}
+
+.tableContainer {
+    width: 100%;
+    height: 70%; /* Adjust the value as needed, increased the height */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.paginationButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.paginationButton:hover {
+    background-color: #45a049;
+}
+
+.paginationButton.active {
+    background-color: #3e8e41;
+}
+
+/* Add this new class */
+.form {
+    position: absolute;
+    top: 2rem; /* Adjust the value as needed */
+    right: 2rem; /* Adjust the value as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+.form input[type="text"],
+.form input[type="number"] {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.form button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #45a049;
+}
