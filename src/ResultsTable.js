@@ -26,7 +26,7 @@ const ResultsTable = () => {
 
     useEffect(() => {
         // Replace this fetch with your actual data source
-        fetch("http://localhost:8080/api/v1/results")
+        fetch("https://watserver-1.onrender.com/api/v1/results")
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error("Error fetching data:", error));
@@ -48,7 +48,7 @@ const ResultsTable = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(requestBody)
         }
-        fetch("http://localhost:8080/api/v1/scanregister", requestOptions)
+        fetch("https://watserver-1.onrender.com/api/v1/scanregister", requestOptions)
             .then((response) => response.text())
             .then((data) => console.log("Scan result:", data))
             .catch((error) => console.error("Error scanning:", error));
