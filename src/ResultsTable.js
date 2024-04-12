@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./ResultsTable.css";
+import ResultModal from "./ResultModal";
 
 const ResultsTable = () => {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [url, setUrl] = useState("");
     const [depth, setDepth] = useState(1);
+
+    //**********************
+
+    const [selectedResult, setSelectedResult] = useState(null);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const handleRowClick = (result) => {
+        setSelectedResult(result);
+        setModalIsOpen(true);
+    };
+
+    const toggleModal = () => {
+        setModalIsOpen(false);
+    };
+
+    //*********************
 
     useEffect(() => {
         // Replace this fetch with your actual data source
@@ -72,7 +89,7 @@ const ResultsTable = () => {
                     </thead>
                     <tbody>
                     {currentResults.map((item) => (
-                        <tr key={item.id}>
+                        <tr key={item.id} onClick={() => handleRowClick(item)}>
                             <td>{item.id}</td>
                             <td>{item.url}</td>
                             <td>{JSON.stringify(item.result)}</td>
@@ -95,6 +112,7 @@ const ResultsTable = () => {
                         )
                     )}
             </div>
+            <ResultModal isOpen={modalIsOpen} toggle={toggleModal} result={selectedResult} />
         </div>
     );
 };
